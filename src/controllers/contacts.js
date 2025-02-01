@@ -53,7 +53,7 @@ export const deleteContactByIdController = async (req, res, next) => {
   res.status(204).send();
 };
 
-export const createContactController = async (req, res, next) => {
+export const createContactController = async (req, res) => {
   const contact = await createContact(req.body);
   res.status(201).json({
     status: 201,
