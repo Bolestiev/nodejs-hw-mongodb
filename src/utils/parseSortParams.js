@@ -1,4 +1,5 @@
-import { KEYS_OF_CONTACTS, SORT_ORDER } from '../constants/constants.js';
+import { KEYS_OF_CONTACTS } from '../constants/enum/constants.js';
+import { SORT_ORDER } from '../constants/enum/sort.js';
 
 const parseSortOrder = (sortOrder) => {
   const isKnownOrder = [SORT_ORDER.ASC, SORT_ORDER.DESC].includes(sortOrder);
