@@ -4,6 +4,8 @@ import {
   logoutUser,
   refreshUserSession,
   registerUser,
+  requestResetToken,
+  resetPassword,
 } from '../services/auth.js';
 import { serializedUser } from '../utils/serializedUser.js';
 
@@ -19,7 +21,7 @@ const setupSession = (session, res) => {
   });
 };
 
-export const registerUserController = async (req, res, next) => {
+export const registerUserController = async (req, res) => {
   const user = await registerUser(req.body);
 
   res.status(201).json({
@@ -29,7 +31,7 @@ export const registerUserController = async (req, res, next) => {
   });
 };
 
-export const loginUserController = async (req, res, next) => {
+export const loginUserController = async (req, res) => {
   const session = await loginUser(req.body);
   setupSession(session, res);
 
@@ -67,5 +69,25 @@ export const refreshUserSessionController = async (req, res) => {
     data: {
       accessToken: session.accessToken,
     },
+  });
+};
+
+export const requestResetEmailController = async (req, res) => {
+  await requestResetToken(req.body.email);
+
+  res.json({
+    status: 200,
+    message: 'Reset password email has been successfully sent.',
+    data: {},
+  });
+};
+
+export const resetPasswordController = async (req, res, next) => {
+  await resetPassword(req.body);
+
+  res.json({
+    message: 'Password has been successfully reset.',
+    status: 200,
+    data: {},
   });
 };
