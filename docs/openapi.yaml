@@ -12,8 +12,8 @@ tags:
   - name: Auth
     description: Auth operations.
 servers:
-  - url: http://localhost:3000
-  - url: https://nodejs-hw-mongodb-7mno.onrender.com
+  - url: http://localhost:4000
+  - url: https://nodejs-hw-mongodb-1-7-hometask.onrender.com
 paths:
   /contacts:
     get:
