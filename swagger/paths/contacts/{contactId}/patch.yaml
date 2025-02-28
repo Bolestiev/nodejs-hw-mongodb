@@ -44,7 +44,7 @@ requestBody:
             example: false
           photo:
             description: "Contact's photo"
-            type: [string, 'null']
+            type: string
             format: binary
 responses:
   '200':
