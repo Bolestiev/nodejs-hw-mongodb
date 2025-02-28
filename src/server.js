@@ -10,7 +10,7 @@ import cookieParser from 'cookie-parser';
 import { UPLOAD_DIR } from './constants/path/constants.js';
 import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
-const PORT = +getEnvVar(ENV_VAR.MONGODB_PORT, 3000);
+const PORT = +getEnvVar(ENV_VAR.MONGODB_PORT, 4000);
 
 export const setupServer = () => {
   const app = express();
